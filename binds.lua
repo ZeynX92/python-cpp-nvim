@@ -7,6 +7,11 @@ vim.keymap.set('i', '<C-s>', '<C-o>:w<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', '<C-z>', 'u', { noremap = true, silent = true })
 vim.keymap.set('i', '<C-z>', '<C-o>u', { noremap = true, silent = true })
 
+-- Блокировать системный suspend в NeoVim
+vim.keymap.set('n', '<C-z>', function()
+  vim.cmd('undo')
+end, { noremap = true, silent = true })
+
 -- Копирование по Ctrl+C
 vim.keymap.set('v', '<C-c>', '"+y', { noremap = true, silent = true })
 vim.keymap.set('n', '<C-c>', '"+yy', { noremap = true, silent = true })  -- копирование всей строки
